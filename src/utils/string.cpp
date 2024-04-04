@@ -58,20 +58,25 @@ void split(std::vector<std::string_view> &result, std::string_view s, char separ
 
     while (i != s.size())
     {
-        while(i != s.size())
+        int flag = 0;
+        while(i != s.size() && flag == 0)
         {
+            flag = 1;
             if(s[i] == separator)
             {
                 ++i;
+                flag = 0;
                 break;
             }
         }
 
+        flag = 0;
         string_size j = i;
-        while(j != s.size())
+        while(j != s.size() && flag == 0)
         {
             if(s[j] == separator)
             {
+                flag = 1;
                 break;
             }
             ++j;
